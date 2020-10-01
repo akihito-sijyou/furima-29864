@@ -1,24 +1,47 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options    |
+| -------- | ------ | ---------- |
+| name     | string | null: false|
+| email    | string | null: false|
+| password | string | null: false|
+| birthday | date   | null: false|
 
-* Ruby version
+### Association
+- has_many :items
 
-* System dependencies
+## items テーブル
+| Column          | Type       | Options    |
+| --------------- | ---------- | ---------- |
+| item_name       | string     | null: false|
+| item_text       | text       | null: false|
+| category        | string     | null: false|
+| price           | integer    | null: false|
+| image           | string     | null: false|
+| status          | string     | null: false|
+| delivery_charge | string     | null: false|
+| shipping_area   | integer    | null: false|
+| shipping_date   | date       | null: false|
+| users_id        | references | null: false|
 
-* Configuration
+### Association
+- belongs_to :user
 
-* Database creation
+## Purchase function　テーブル
+| Column    | type       | Options    |
+| --------- | ---------- | ---------- |
+| users_id  | references | null: false|
+| items_id  | references | null: false|
 
-* Database initialization
+### Association
+- has_one :shipping address
 
-* How to run the test suite
+## Shipping address テーブル
+| Column    | type       | Options    |
+| --------- | ---------- | ---------- |
+| users_id  | references | null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to　：purchase function
