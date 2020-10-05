@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :purchase_function
+- has_many :purchase_functions
 
 ## items テーブル
 | Column             | Type       | Options          |
@@ -32,7 +32,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchase_function
+- has_one :purchase_functions
 
 ## Purchase_function　テーブル
 | Column    | type       | Options          |
@@ -41,9 +41,9 @@
 | item      | references | foreign_key: true|
 
 ### Association
-- belongs_to :items
-- belongs_to :users
-- has_one :shipping_address
+- belongs_to :item
+- belongs_to :user
+- has_one :shipping_addresses
 
 ## Shipping_address テーブル
 | Column            | type       | Options          |
