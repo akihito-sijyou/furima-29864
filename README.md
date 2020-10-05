@@ -26,15 +26,15 @@
 | price              | integer    | null: false      |
 | status_id          | integer    | null: false      |
 | delivery_charge_id | integer    | null: false      |
-| prefectures_id     | integer    | null: false      |
+| pprefectures_id     | integer    | null: false      |
 | shipping_date_id   | integer    | null: false      |
 | user               | references | foreign_key: true|
 
 ### Association
 - belongs_to :user
-- has_one :purchase_functions
+- has_one :purchase_function
 
-## Purchase_function　テーブル
+## Purchase_functions　テーブル
 | Column    | type       | Options          |
 | --------- | ---------- | ---------------- |
 | user      | references | foreign_key: true|
@@ -43,9 +43,9 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_one :shipping_addresses
+- has_one :shipping_address
 
-## Shipping_address テーブル
+## Shipping_addresses テーブル
 | Column            | type       | Options          |
 | ----------------- | ---------- | -----------------|
 | purchase_function | references | foreign_key: true|
