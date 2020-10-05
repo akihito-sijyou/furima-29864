@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type   | Options    |
+| --------------- | ------ | ---------- |
+| nickname        | string | null: false|
+| first_name      | string | null: false|
+| second_name     | string | null: false|
+| first_furigana  | string | null: false|
+| second_furigana | string | null: false|
+| email           | string | null: false|
+| password        | string | null: false|
+| birthday        | date   | null: false|
 
-* Ruby version
+### Association
+- has_many :items
+- has_many :purchase_functions
 
-* System dependencies
+## items テーブル
+| Column             | Type       | Options          |
+| ------------------ | ---------- | ---------------- |
+| name               | string     | null: false      |
+| text               | text       | null: false      |
+| category_id        | integer    | null: false      |
+| price              | integer    | null: false      |
+| status_id          | integer    | null: false      |
+| delivery_charge_id | integer    | null: false      |
+| prefectures_id     | integer    | null: false      |
+| shipping_date_id   | integer    | null: false      |
+| user               | references | foreign_key: true|
 
-* Configuration
+### Association
+- belongs_to :user
+- has_one :purchase_function
 
-* Database creation
+## Purchase_functions　テーブル
+| Column    | type       | Options          |
+| --------- | ---------- | ---------------- |
+| user      | references | foreign_key: true|
+| item      | references | foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :item
+- belongs_to :user
+- has_one :shipping_address
 
-* How to run the test suite
+## Shipping_addresses テーブル
+| Column            | type       | Options          |
+| ----------------- | ---------- | -----------------|
+| purchase_function | references | foreign_key: true|
+| postal_code       | string     | null: false      |
+| Prefectures_id    | integer    | null: false      |
+| municipality      | string     | null: false      |
+| address           | string     | null: false      |
+| building_name     | string     |                  |
+| phone_number      | string     | null: false      |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to　：purchase_function
