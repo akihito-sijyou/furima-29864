@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type   | Options    |
-| --------------- | ------ | ---------- |
-| nickname        | string | null: false|
-| first_name      | string | null: false|
-| second_name     | string | null: false|
-| first_furigana  | string | null: false|
-| second_furigana | string | null: false|
-| email           | string | null: false|
-| password        | string | null: false|
-| birthday        | date   | null: false|
+| Column           | Type   | Options    |
+| ---------------- | ------ | ---------- |
+| nickname         | string | null: false|
+| family_name      | string | null: false|
+| first_name       | string | null: false|
+| family_furigana  | string | null: false|
+| first_furigana   | string | null: false|
+| email            | string | null: false|
+| password         | string | null: false|
+| birthday         | date   | null: false|
 
 ### Association
 - has_many :items
